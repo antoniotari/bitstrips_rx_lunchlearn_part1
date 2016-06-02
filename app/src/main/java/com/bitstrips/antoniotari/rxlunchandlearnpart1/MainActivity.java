@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         if (throwable instanceof NetworkException) {
             // do something for network errors
             // you can cast to NetworkException and use it
-            NetworkException networkException = (NetworkException)throwable;
+            NetworkException networkException = (NetworkException) throwable;
             log(networkException.getError().getMessage());
         } else {
             // anything else
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 .filter(new Func1<String, Boolean>() {
                     @Override
                     public Boolean call(final String s) {
-                        return s!=null;
+                        return s != null;
                     }
                 })
                 .subscribe(url -> System.out.println(url));

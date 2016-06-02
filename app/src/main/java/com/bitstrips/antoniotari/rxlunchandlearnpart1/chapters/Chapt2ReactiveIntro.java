@@ -16,19 +16,18 @@ import static com.bitstrips.antoniotari.rxlunchandlearnpart1.utils.Utils.createP
 /**
  * Created by antonio.tari on 6/2/16.
  */
-public class Chapt2ReactiveIntro implements Runnable{
+public class Chapt2ReactiveIntro implements Runnable {
 
     /**
-     * prints a list of people that matches the condition of the predicate,
-     * an interface provided by internal.util using observables
+     * prints a list of people that matches the condition of the predicate, an interface provided by internal.util using observables
      */
-    public void callPeople3(List<Person> people, Predicate<Person> predicate){
+    public void callPeople3(List<Person> people, Predicate<Person> predicate) {
         Observable.from(people)
                 .filter(person -> predicate.apply(person))
                 .subscribe(Log::log);
     }
 
-    public void callPeople4(List<Person> people, FunctionalInterface1<Person> predicate){
+    public void callPeople4(List<Person> people, FunctionalInterface1<Person> predicate) {
         Observable.from(people)
                 .filter(predicate::test)
                 .subscribe(Log::log);
@@ -68,7 +67,7 @@ public class Chapt2ReactiveIntro implements Runnable{
      * return a String of concatenated person objects
      */
     public Observable<String> callPeople7Better(List<Person> people, FunctionalInterface1<Person> predicate) {
-        return callPeople6(people,predicate)
+        return callPeople6(people, predicate)
                 .reduce("", (s, person) -> s + "\n" + person.toString());
     }
 

@@ -31,13 +31,13 @@ public class Person {
     @Override
     public String toString() {
         String toString = new Gson().toJson(this);
-        if(toString==null || toString.isEmpty()) {
+        if (toString == null || toString.isEmpty()) {
             toString = super.toString();
         }
         return toString;
     }
 
-    public String getLink(){
+    public String getLink() {
         return "http://i4.mirror.co.uk/incoming/article823894.ece/ALTERNATES/s615/Tyrannosaurus%20Rex";
     }
 }

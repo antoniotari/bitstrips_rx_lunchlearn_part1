@@ -9,7 +9,7 @@ public class NetworkException extends Exception {
 
     private Error mError;
 
-    public NetworkException(Error error){
+    public NetworkException(Error error) {
         super(error.getMessage());
         mError = error;
     }

@@ -6,7 +6,6 @@ import java.util.List;
 import com.android.internal.util.Predicate;
 import com.bitstrips.antoniotari.rxlunchandlearnpart1.interfaces.FunctionalInterface1;
 import com.bitstrips.antoniotari.rxlunchandlearnpart1.models.Person;
-import com.bitstrips.antoniotari.rxlunchandlearnpart1.utils.Utils;
 
 import static com.bitstrips.antoniotari.rxlunchandlearnpart1.utils.Log.log;
 import static com.bitstrips.antoniotari.rxlunchandlearnpart1.utils.Utils.createPeopleList;
@@ -19,29 +18,26 @@ public class Chapt1LambdaIntro implements Runnable {
     /**
      * prints a list of people that matches the condition of our interface
      */
-    public void callPeople1(List<Person> people, FunctionalInterface1<Person> predicate){
-        for(Person person:people){
-            if(predicate.test(person)){
+    public void callPeople1(List<Person> people, FunctionalInterface1<Person> predicate) {
+        for (Person person : people) {
+            if (predicate.test(person)) {
                 log(person);
             }
         }
     }
 
     /**
-     * prints a list of people that matches the condition of the predicate,
-     * an interface provided by internal.util
+     * prints a list of people that matches the condition of the predicate, an interface provided by internal.util
      */
-    public List<Person> callPeople2(List<Person> people, Predicate<Person> predicate){
+    public List<Person> callPeople2(List<Person> people, Predicate<Person> predicate) {
         List<Person> resultList = new ArrayList<>();
-        for(Person person:people){
-            if(predicate.apply(person)){
+        for (Person person : people) {
+            if (predicate.apply(person)) {
                 resultList.add(person);
             }
         }
         return resultList;
     }
-
-
 
     @Override
     public void run() {
@@ -54,7 +50,7 @@ public class Chapt1LambdaIntro implements Runnable {
             }
         });
 
-        callPeople1(people, person -> person.getAge() > 27);
-        callPeople1(people, Utils::testPeopleOver27);
+//        callPeople1(people, person -> person.getAge() > 27);
+//        callPeople1(people, Utils::testPeopleOver27);
     }
 }
